@@ -11,10 +11,59 @@ import {
   import About from './About';
 
   import useStyles from './UseStyles';
+  import React from 'react';
+  import { withStyles } from '@material-ui/core/styles';
+  import Menu from '@material-ui/core/Menu';
+  import MenuItem from '@material-ui/core/MenuItem';
+  import ListItemIcon from '@material-ui/core/ListItemIcon';
+  import ListItemText from '@material-ui/core/ListItemText';
+  import AccessibilityIcon from '@material-ui/icons/Accessibility';
+  import DraftsIcon from '@material-ui/icons/Drafts';
+  import HomeIcon from '@material-ui/icons/Home';
 
+  
+  const StyledMenu = withStyles({
+    paper: {
+      border: '1px solid #d3d4d5',
+    },
+  })((props) => (
+    <Menu
+      elevation={0}
+      getContentAnchorEl={null}
+      anchorOrigin={{
+        vertical: 'bottom',
+        horizontal: 'center',
+      }}
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'center',
+      }}
+      {...props}
+    />
+  ));
+  
+  const StyledMenuItem = withStyles((theme) => ({
+    root: {
+      '&:focus': {
+        backgroundColor: theme.palette.primary.main,
+        '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
+          color: theme.palette.common.white,
+        },
+      },
+    },
+  }))(MenuItem);
   
 export default function Header() {
     const classes = useStyles();
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+  
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
     return (
 
 <div>
@@ -23,35 +72,48 @@ export default function Header() {
 <Toolbar>
 
 <IconButton edge="start" color="inherit" aria-laabel="menu" className={classes.menuButton}>
-<MenuIcon/>
+
+
+<div>
+      <Button
+        aria-controls="customized-menu"
+        aria-haspopup="true"
+        variant="contained"
+        color="default"
+        onClick={handleClick}
+      >
+       <MenuIcon/>
+      </Button>
+      <StyledMenu
+        id="customized-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <StyledMenuItem>
+          <ListItemIcon>
+            <AccessibilityIcon fontSize="small" />
+          </ListItemIcon>
+          <Link style={{ textDecoration: 'none' }} to="/about"><ListItemText primary="About us" /></Link>
+        </StyledMenuItem>
+        <StyledMenuItem>
+          <ListItemIcon>
+            <DraftsIcon fontSize="small" />
+          </ListItemIcon>
+          <Link style={{ textDecoration: 'none' }} to="/write"> <ListItemText primary="Write us" /></Link>
+        </StyledMenuItem>
+        <StyledMenuItem>
+          <ListItemIcon>
+            <HomeIcon fontSize="small" />
+          </ListItemIcon>
+          <Link style={{ textDecoration: 'none' }} to="/"><ListItemText color="inherit" primary="Home" /></Link>
+        </StyledMenuItem>
+      </StyledMenu>
+    </div>
 </IconButton>
 
 <Typography variant="h6" className={classes.title}> Documents Builder</Typography>
-
-<Box mr={1}>
-<Button color="inherit" variant="outlined"> Log in </Button>
-</Box>
-
-<Box mr={1}>
-<Button color="primary" variant="contained"> Sign up </Button>
-</Box>
-
-<Box mr={1}>
-          <Link to="/"><Button color="inherit" variant="outlined"> Home</Button></Link>
-          </Box>
-        
-<Box mr={1}>
-          <Link to="/about"><Button color="inherit" variant="outlined"> About </Button></Link>
-          </Box>
-
-          <Box mr={1}>
-          <Link to="/newdoc"><Button color="inherit" variant="outlined"> New doc </Button></Link>
-          </Box>
-
-
-          <Box mr={1}>
-          <Link to="/write"><Button color="inherit" variant="outlined"> Write us </Button></Link>
-          </Box>
 
     
 
@@ -65,7 +127,7 @@ export default function Header() {
 
 
 <Paper className={classes.mainFeaturePost}
-style={{backgroundImage:`url(https://source.unsplash.com/AcL5SitD8Wg/1600x900)`}}>
+style={{backgroundImage:`url(https://source.unsplash.com/1600x900/?vintage)`}}>
 <Container fixed>
 <Grid item md={6}>
 <div className={classes.mainFeaturePostContent}>
@@ -86,9 +148,11 @@ paragraph
 Create your document
 Create your document
 </Typography>
+<Link style={{ textDecoration: 'none' }} to="/about">
 <Button variant="contained" color="primary">
 Learn more
 </Button>
+</Link>
 
     </div>
     </Grid>

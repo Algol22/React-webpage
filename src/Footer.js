@@ -16,7 +16,9 @@ export default function Footer() {
       setValue(newValue);
     };
     return (
+      
 <footer>
+<br/>
 <Typography variant="h6" align="center" gutterBottom>Footer
 </Typography>
 <BottomNavigation

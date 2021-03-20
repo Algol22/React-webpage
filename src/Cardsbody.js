@@ -1,14 +1,38 @@
 import { Button, Container, Typography, Grid, Card, CardMedia, CardContent, CardActions } from '@material-ui/core';
 import LayerIcon from '@material-ui/icons/Layers';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
-import useStyles from './UseStyles';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import IconButton from '@material-ui/core/IconButton';
+import clsx from 'clsx';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Collapse from '@material-ui/core/Collapse';
 
-const cards= [1,2,3,4,5,6,7,8,9];
-
-
+const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+      maxWidth: 345,
+    },
+    expand: {
+        transform: 'rotate(0deg)',
+        marginLeft: 'auto',
+        transition: theme.transitions.create('transform', {
+          duration: theme.transitions.duration.shortest,
+        }),
+      },
+      expandOpen: {
+        transform: 'rotate(180deg)',
+      },
+}));
 
 export default function Cardsbody() {
     const classes = useStyles();
+    const [expanded, setExpanded] = React.useState(false);
+  
+    const handleExpandClick = () => {
+      setExpanded(!expanded);
+    };
     return (
      
 <div>
@@ -19,49 +43,334 @@ Options
 <Typography variant="h5" align="center" color="textSecondary" pargraph>
 make your choice
 </Typography>
-</Container>
+<br/>
 
 
 
+<Grid container spacing={3}>
+        <Grid item xs>
+                                <Card className={classes.root}>
+                            <CardActionArea>
+                                <CardMedia
+                                component="img"
+                                alt="Contemplative Reptile"
+                                height="140"
+                                image="https://source.unsplash.com/1600x900/?tax"
+                                title="Contemplative Reptile"
+                                />
+                                <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    Taxes
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                Share
+                                </Button>
+                                <Button size="small" color="primary">
+                                Learn More
+                                </Button>
+                                <IconButton
+                className={clsx(classes.expand, {
+                    [classes.expandOpen]: expanded,
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+                >
+                <ExpandMoreIcon />
+                </IconButton>
+                            </CardActions>
+                            <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Typography>
+        </CardContent>
+      </Collapse>
+                            </Card>
+        </Grid>
+        <Grid item xs>
+        <Card className={classes.root}>
+                            <CardActionArea>
+                                <CardMedia
+                                component="img"
+                                alt="Contemplative Reptile"
+                                height="140"
+                                image="https://source.unsplash.com/1600x900/?spring"
+                                title="Contemplative Reptile"
+                                />
+                                <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    Disputes
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                Share
+                                </Button>
+                                <Button size="small" color="primary">
+                                Learn More
+                                </Button>
+                                <IconButton
+                className={clsx(classes.expand, {
+                    [classes.expandOpen]: expanded,
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+                >
+                <ExpandMoreIcon />
+                </IconButton>
+                            </CardActions>
+                            <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Typography>
+        </CardContent>
+      </Collapse>
+                            </Card>
+        </Grid>
+        <Grid item xs>
+        <Card className={classes.root}>
+                            <CardActionArea>
+                                <CardMedia
+                                component="img"
+                                alt="Contemplative Reptile"
+                                height="140"
+                                image="https://source.unsplash.com/1600x900/?family"
+                                title="Contemplative Reptile"
+                                />
+                                <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    Family law
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                Share
+                                </Button>
+                                <Button size="small" color="primary">
+                                Learn More
+                                </Button>
+                                <IconButton
+                className={clsx(classes.expand, {
+                    [classes.expandOpen]: expanded,
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+                >
+                <ExpandMoreIcon />
+                </IconButton>
+                            </CardActions>
+                            <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Typography>
+        </CardContent>
+      </Collapse>
+                            </Card>
+        </Grid>
+      </Grid>
 
 
+      <Grid container spacing={3}>
+        <Grid item xs>
+        <Card className={classes.root}>
+                            <CardActionArea>
+                                <CardMedia
+                                component="img"
+                                alt="Contemplative Reptile"
+                                height="140"
+                                image="https://source.unsplash.com/1600x900/?car"
+                                title="Contemplative Reptile"
+                                />
+                                <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    Car accidents
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                Share
+                                </Button>
+                                <Button size="small" color="primary">
+                                Learn More
+                                </Button>
+                                <IconButton
+                className={clsx(classes.expand, {
+                    [classes.expandOpen]: expanded,
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+                >
+                <ExpandMoreIcon />
+                </IconButton>
+                            </CardActions>
+                            <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Typography>
+        </CardContent>
+      </Collapse>
+                            </Card>
+        </Grid>
+        <Grid item xs>
+        <Card className={classes.root}>
+                            <CardActionArea>
+                                <CardMedia
+                                component="img"
+                                alt="Contemplative Reptile"
+                                height="140"
+                                image="https://source.unsplash.com/1600x900/?building"
+                                title="Contemplative Reptile"
+                                />
+                                <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    Real  estate
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                Share
+                                </Button>
+                                <Button size="small" color="primary">
+                                Learn More
+                                </Button>
+                                <IconButton
+                className={clsx(classes.expand, {
+                    [classes.expandOpen]: expanded,
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+                >
+                <ExpandMoreIcon />
+                </IconButton>
+                            </CardActions>
+                            <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Typography>
+        </CardContent>
+      </Collapse>
+                            </Card>
+        </Grid>
+        <Grid item xs>
+        <Card className={classes.root}>
+                            <CardActionArea>
+                                <CardMedia
+                                component="img"
+                                alt="Contemplative Reptile"
+                                height="140"
+                                image="https://source.unsplash.com/1600x900/?people"
+                                title="Contemplative Reptile"
+                                />
+                                <CardContent>
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    International law
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions>
+                                <Button size="small" color="primary">
+                                Share
+                                </Button>
+                                <Button size="small" color="primary">
+                                Learn More
+                                </Button>
+                                
 
-<Container className={classes.cardGrid} maxwidth="md">
-<Grid container spacing={4}>
-{cards.map((card) => (
-<Grid item key={card} xs={12} sm={6} md={4}>
-<Card className={classes.card}>
-<CardMedia
-className={classes.cardMedia}
-image="https://source.unsplash.com/random"
-title="Image title"
-/>
-<CardContent className={classes.cardContent}>
-<Typography variant="h5" gutterBottom>
-Blog post
-</Typography>
-<Typography>
-learn more
-</Typography>
-</CardContent>
-<CardActions>
-<Button size="small" color="primary">
-View
-</Button>
-<Button size="small" color="primary">
-Edit
-</Button>
-<LayerIcon/>
-<PlayCircleFilledIcon/>
-</CardActions>
+                                        <IconButton
+                className={clsx(classes.expand, {
+                    [classes.expandOpen]: expanded,
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+                >
+                <ExpandMoreIcon />
+                </IconButton>
+                            </CardActions>
 
-</Card>
-</Grid>
+                            <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography variant="body2" color="textSecondary" paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Typography>
+        </CardContent>
+      </Collapse>
+                            </Card>
+        </Grid>
+      </Grid>
 
-))}
-</Grid>
-</Container>
 
+      </Container>
 </div>
     )
 }

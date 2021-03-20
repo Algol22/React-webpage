@@ -34,7 +34,7 @@ export default function Write() {
      
    
 <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
-Wirte us
+Write us
 </Typography>
 <Typography variant="h5" align="center" color="textSecondary" pargraph>
 we will get back you shortly

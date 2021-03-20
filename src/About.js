@@ -16,7 +16,7 @@ About us
 <Typography variant="h5" align="center" color="textSecondary" pargraph>
 Short story
 </Typography>
-
+<br/>
       
 
             <Typography paragraph>
