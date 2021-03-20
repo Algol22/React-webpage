@@ -17,3 +17,4 @@ npm install @material-ui/icons
 Add "homepage": ".", in your package.json then build again.
 
 $ npm run-script build
+$ npm install react-router-dom
